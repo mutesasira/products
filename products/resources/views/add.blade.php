@@ -8,25 +8,25 @@
                 <div class="panel-heading">Dashboard</div>
 
                  <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{url('editaction')}}" >
+                    <form class="form-horizontal" method="POST" enctype="multipart/form-data"  action="{{url('addaction')}}">
                     @csrf
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Product Name</label>
+                            <label for="email" class="col-md-4 control-label">Product Name</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" value="{{$product->name}}"  name="name"  required autofocus>
-                                <input id="_id" type="hidden" class="form-control" value="{{$product->id}}"  name="_id"  required autofocus>
-                               
+                                <input id="name" type="text" class="form-control" name="name"  required autofocus>
+
                             </div>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="qty" class="col-md-4 control-label">Quantity</label>
 
                             <div class="col-md-6">
-                                <input id="qty" type="number" class="form-control" name="qty"  value="{{$product->qty}}" required>
-
+                                <input id="qty" type="number" class="form-control" name="qty" required>
+                                
+                                
                             </div>
                         </div>
 
@@ -34,7 +34,7 @@
                             <label for="cprice" class="col-md-4 control-label">Cost Price</label>
 
                             <div class="col-md-6">
-                                <input id="cprice" type="number" class="form-control" name="cprice" value="{{$product->cprice}}"  required>
+                                <input id="cprice" type="number" class="form-control" name="cprice" required>
 
                             </div>
                         </div>
@@ -43,31 +43,28 @@
                             <label for="sprice" class="col-md-4 control-label">Selling Price</label>
 
                             <div class="col-md-6">
-                                <input id="sprice" type="number" class="form-control" value="{{$product->sprice}}"  name="sprice" required>
+                                <input id="sprice" type="number" class="form-control" name="sprice" required>
 
                             </div>
                         </div>
-                       
+
                            <div class="form-group">
                             <label for="expdate" class="col-md-4 control-label">Expire Date</label>
 
                             <div class="col-md-6">
-                                <input id="exdate" type="date" class="form-control"  value="{{$product->expdate}}" name="exdate" >
+                                <input id="exdate" type="date" class="form-control" name="exdate" >
 
                             </div>
                         </div>
-
-
                         <div class="form-group">
                             <label for="supplier_certificate" class="col-md-4 control-label">Supplier Certificate</label>
 
                             <div class="col-md-6">
                                 <input id="supplier_certificate" type="file" class="form-control" name="supplier_certificate" >
-                                <input id="certificateold" type="hidden"  value="{{$product->supplier_certificate}}" class="form-control" name="certificateold" >
 
                             </div>
                         </div>
-                        
+
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
